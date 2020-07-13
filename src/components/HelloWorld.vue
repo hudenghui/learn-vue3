@@ -3,18 +3,14 @@
 </template>
 
 <script>
-  import { ref, reactive } from 'vue'
+import { h, ref, reactive } from 'vue'
 
-  export default {
-    setup() {
-      const count = ref(0)
-      const object = reactive({ foo: 'bar' })
+export default {
+  setup() {
+    const count = ref(0)
+    const object = reactive({ foo: 'bar' })
 
-      // 暴露给模板
-      return {
-        count,
-        object,
-      }
-    },
-  }
+    return () => h('div', [count.value, object.foo])
+  },
+}
 </script>
